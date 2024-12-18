@@ -16,7 +16,7 @@ jobs:
 
     steps:
 
-    - name: Configure AWS credentials
+    - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
         role-to-assume: arn:aws:iam::999855308786:role/gh-actions-role
