@@ -4,13 +4,12 @@ on:
   push:
     branches: [ "main" ]
 
+permissions:
+  id-token: write
+
 jobs:
 
   build:
-    permissions:
-      id-token: write
-      contents: read
-
     name: Build image
     runs-on: ubuntu-latest
 
@@ -21,11 +20,6 @@ jobs:
       with:
         role-to-assume: arn:aws:iam::999855308786:role/gh-actions-role
         aws-region: sa-east-1
-
-    - name: Inspect OIDC token
-      run: |
-        echo ${{ github.token }} | jq .  # This will print the token details in the logs
-        echo "Inspecting OIDC Token"
 
     - name: Login to Amazon ECR
       id: login-ecr
