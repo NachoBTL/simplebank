@@ -7,7 +7,8 @@ services:
       - POSTGRES_DB=simple_bank
   api:
     build:
-      dockerfile: Dockerfile
+      context: .
+      push: true
     ports:
      - "8080:8080"
     environment:
